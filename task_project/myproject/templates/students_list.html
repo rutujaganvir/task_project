@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">enrollment</th>
+            <th scope="col">school</th>
+            <th scope="col">created_at</th>
+            <th scope="col">updated_at</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <th scope="row">1</th>
+            <td>{{student.name}}</td>
+            <td>{{student.enrollment}}</td>
+            <td>{{student.school}}</td>
+            <td>{{student.created_at}}</td>
+            <td>{{student.updated_at}}</td>
+            <td><a href="{% url 'update-student' id=student.id %}"> <button type="submit"
+                        class="btn btn-success">Update</button></a></td>
+            <td><a href="{% url 'delete-student' id=student.id %}"><button type="submit"
+                        class="btn btn-danger">Delete</button></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

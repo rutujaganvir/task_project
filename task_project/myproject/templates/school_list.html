@@ -1,0 +1,29 @@
+{% include 'base.html' %}
+{% block content %}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+
+            <th scope="col">name</th>
+            <th scope="col">dfdsddsf</th>
+            <th scope="col">updated_at</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for school in schools %}
+        <tr>
+
+            <td>{{school.name}}</td>
+            <td>{{school.created_at}}</td>
+            <td>{{school.updated_at}}</td>
+            <td><a href="{% url 'update-school' id=school.id %}"> <button type="submit"
+                        class="btn btn-success">Update</button></a></td>
+            <td><a href="{% url 'delete-school' id=school.id %}"><button type="submit"
+                        class="btn btn-danger">Delete</button></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
